@@ -1,0 +1,24 @@
+﻿@model Mvc_Bootstrap_Knockout.Models.Person
+
+@{
+    ViewBag.Title = "Basic";
+}
+
+<div id="HomeBasicContainer">
+    <h1>Hello <span data-bind="text: basicVM.getName()"></span></h1>  
+</div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var basicVM = new BasicViewModel();
+
+        ko.applyBindings();
+
+        basicVM.getName('@Model.FirstName', '@Model.LastName')
+
+    });
+
+</script>
