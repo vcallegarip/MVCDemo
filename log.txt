@@ -1,0 +1,5 @@
+commit 15e770943967e6e317765baafc8951cb4ebf63cd
+Author: Victor Callegari <vcallegarip@gmail.com>
+Date:   Sun May 31 20:32:44 2015 -0700
+
+    First Commit for my MVC Knockoutjs training
