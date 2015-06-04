@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Mvc_Bootstrap_Knockout.Models.Author>
+
+@{
+    ViewBag.Title = "Authors";
+}
+
+<h2>Authors</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Biography)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+
+    <tbody data-bind="foreach: authors">
+        <tr>
+
+            <td data-bind="text: FirstName"></td>
+            <td data-bind="text: LastName"></td>
+            <td data-bind="text: Biography"></td>
+            <td>
+                <a data-bind="attr: {href: '@Url.Action("Details")/' + Id }" class="btn btn-info">Details</a>
+                <a data-bind="attr: {href: '@Url.Action("Edit")/' + Id }" class="btn btn-info">Edit</a>
+                <a data-bind="attr: {href: '@Url.Action("Delete")/' + Id }" class="btn btn-info">Delete</a>
+            </td>
+
+        </tr>
+
+    </tbody>
+    
+</table>
+
+@section Scripts {
+    <script>
+
+        function ViewModel(authors) {
+            var self = this;
+
+            self.authors = authors;
+
+        }
+        
+        $(document).ready(function () {
+            var viewModel = new ViewModel(@Html.HtmlConvertToJson(Model));
+            ko.applyBindings(viewModel);
+        });
+
+
+
+    </script>
+}
+
+    
+
+@*<script src="@Url.Content("~/Scripts/ViewModels/Authors/author.js")" type="text/javascript">
+
+    var viewModel = new AuthorViewModel(@Html.HtmlConvertToJson(Model));
+    ko.applyBindings(viewModel);
+
+</script>*@

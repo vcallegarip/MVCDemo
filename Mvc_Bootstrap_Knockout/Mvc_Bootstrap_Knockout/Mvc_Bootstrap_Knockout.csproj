@@ -46,6 +46,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -109,17 +113,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\BookContext.cs" />
     <Compile Include="DAL\BookInitializer.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -150,6 +151,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\ViewModels\Authors\author.js" />
     <Content Include="Scripts\ViewModels\basic.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -168,6 +170,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Basic.cshtml" />
+    <Content Include="Views\Authors\Create.cshtml" />
+    <Content Include="Views\Authors\Delete.cshtml" />
+    <Content Include="Views\Authors\Details.cshtml" />
+    <Content Include="Views\Authors\Edit.cshtml" />
+    <Content Include="Views\Authors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
