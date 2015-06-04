@@ -1,7 +1,10 @@
-﻿@model IEnumerable<Mvc_Bootstrap_Knockout.Models.Author>
+﻿@using Mvc_Bootstrap_Knockout.Models
+@model IEnumerable<Author>
+
 
 @{
     ViewBag.Title = "Authors";
+    var queryOptions = (QueryOptions)ViewBag.QueryOptions;
 }
 
 <h2>Authors</h2>
@@ -10,14 +13,17 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FirstName)
+                @*@Html.DisplayNameFor(model => model.FirstName)*@
+                @Html.BuildSortableLink("First Name", "Index", "FirstName", queryOptions)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastName)
+                @*@Html.DisplayNameFor(model => model.LastName)*@
+                @Html.BuildSortableLink("Last Name", "Index", "LastName", queryOptions)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Biography)
